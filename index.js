@@ -10,19 +10,19 @@ function removeClass(element, className) {
   element.classList.remove(className);
 }
 
-let cart = $('.cart');
-let cartImage = $('.cart img');
-let cartMenu = $('.cart-menu');
-let timeout;
+const cart = $('.cart');
+const cartImage = $('.cart img');
+const cartMenu = $('.cart-menu');
+var timeout;
 
 // function changeIconSrc(img,url){
 //   img.src = url;
 // }
-let ctrIndex = 0;
-let ctrls = $('.control').getElementsByTagName('li');
-let banner1 = $('.slider-item:nth-child(1) img');
-let banner2 = $('.slider-item:nth-child(2) img');
-let banner3 = $('.slider-item:nth-child(3) img');
+var ctrIndex = 0;
+const ctrls = $('.control').getElementsByTagName('li');
+const banner1 = $('.slider-item:nth-child(1) img');
+const banner2 = $('.slider-item:nth-child(2) img');
+const banner3 = $('.slider-item:nth-child(3) img');
 var banner = [banner1, banner2, banner3];
 console.log(banner);
 
@@ -50,9 +50,9 @@ cart.addEventListener('mouseout', () => {
   }, 200);
 });
 
-let searchText = $('#search-text');
-let searchBtn = $('#search-btn');
-let searchImage = $('.search-box img');
+const searchText = $('#search-text');
+const searchBtn = $('#search-btn');
+const searchImage = $('.search-box img');
 
 function changeSearchColor(colorText, colorBtn) {
   searchText.style.borderColor = colorText;
@@ -91,11 +91,11 @@ searchText.addEventListener('focus', () => {
 //banner slide
 var slideIndex = 0;
 var timer = null;
-var slider = $('.slider');
-var banner = $('.slider').getElementsByClassName('slider-item');
+const slider = $('.slider');
+const banner = $('.slider').getElementsByClassName('slider-item');
 // var len = banner.length;
 // console.log(banner);
-var dots = $('.control').getElementsByClassName('control-item');
+const dots = $('.control').getElementsByClassName('control-item');
 // console.log(banner);
 
 function slideImage() {
@@ -138,8 +138,8 @@ function changeBannerImage() {
 slideImage();
 
 //prev next controls
-let prevBtn = $('.prev img');
-let nextBtn = $('.next img');
+const prevBtn = $('.prev img');
+const nextBtn = $('.next img');
 
 prevBtn.addEventListener('mouseover', () => {
   prevBtn.src = 'img/icon/prev_white.png';
@@ -170,12 +170,10 @@ nextBtn.addEventListener('click', () => {
   changeBannerImage();
 })
 
-let subItem = $('.func').getElementsByTagName('li');
-let subImage = $('.func').getElementsByTagName('img');
-let str = [];
-for (var i = 0; i < subItem.length; i++) {
-  str[i] = subImage[i].src.split('.')[0];
-}
+const subItem = $('.func').getElementsByTagName('li');
+const subImage = $('.func').getElementsByTagName('img');
+var str = [];
+
 function ListenerForI(url,i) {
   subItem[i].onmouseover = function () {
     console.log(url);
@@ -193,4 +191,9 @@ for (var i = 0; i < subItem.length; i++) {
   ListenerForI(str[i],i);
 }
 
+window.onload = function(){
+  for (var i = 0; i < subItem.length; i++) {
+    str[i] = subImage[i].src.split('.')[0];
+  }
+}
 // subItem.onclick
